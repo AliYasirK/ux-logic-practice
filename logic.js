@@ -21,7 +21,11 @@
 */
 function getColor(number) {
   // Uncomment and complete
-  return /* ( Your code Here ) ?  Your code Here  :  Your code Here */;
+  /* ( Your code Here ) ?  Your code Here  :  Your code Here */ if (
+    number > 10
+  ) {
+    return "blue";
+  } else return "red";
 }
 
 /* 
@@ -51,7 +55,15 @@ console.log(getColor(10) === "red");
 function lightStatus(brightness) {
   let result = "";
   // Put your logic here
-  return result;
+
+  if (brightness == 0) {
+    return "off";
+  } else if (brightness > 0 && brightness < 200) {
+    return "dimmed";
+  }
+  if (brightness >= 200) {
+    return "on";
+  }
 }
 
 /* 
@@ -88,14 +100,51 @@ console.log(lightStatus(255) === "on");
 
 function getLightBulbStatusDisplayString(status) {
   let result = "";
-  /* uncomment and complete
-    switch( your code here ) {
-      case "your code here": 
-        your code here;
-        break;
-      etc...
-    }
-    */
+  switch (status) {
+    default:
+      return "Something is wrong!";
+      break;
+
+    case "x":
+      return "Something is wrong!";
+      break;
+
+    case "x":
+      return "Something is wrong!";
+      break;
+    case "on":
+      return "The house is bright!";
+      break;
+
+    case "dimmed":
+      return "The house is nice and dim";
+      break;
+
+    case "off":
+      return "The house is dark";
+      break;
+
+    case "deleted":
+      return "The lightbulb has been removed from the system";
+      break;
+
+    case "broken":
+      return "The house is dark and we can't turn the light on!";
+      break;
+
+    case "offline":
+      return "The house is dark and we can't find the lightbulb!";
+      break;
+
+    case "missing":
+      return "The house is dark and we can't find the lightbulb!";
+      break;
+
+    case "":
+      return "Something is wrong!";
+      break;
+  }
+
   return result;
 }
 
@@ -228,6 +277,10 @@ function updateLights(
   turnOnLight("livingRoomLight");
   // example of turning off a light
   turnOffLight("livingRoomLight");
+}
+
+if (itIsDarkOutside) {
+  turnOnLight("frontPorchLight");
 }
 
 /* 
