@@ -272,16 +272,40 @@ function updateLights(
   theyWentToBed
 ) {
   // Write your code here!  You don't need to return anything, just call the given functions
-  // You should be using if else statements and the function arguments
-  // example of turning a light on
-  turnOnLight("livingRoomLight");
-  // example of turning off a light
-  turnOffLight("livingRoomLight");
-}
+  if (itIsDarkOutside) {
+    turnOnLight("frontPorchLight");
+  } else {
+    turnOffLight("frontPorchLight");
+  }
 
-if (itIsDarkOutside) {
-  turnOnLight("frontPorchLight");
+  if (!somebodyIsHome) {
+    turnOffLight("livingRoomLight");
+    turnOffLight("diningRoomLight");
+    turnOffLight("kitchenLight");
+    turnOffLight("bedroomLight");
+
+  }
+
+  if (somebodyIsHome && !theyWentToBed) {
+    turnOnLight("livingRoomLight");
+    turnOnLight("diningRoomLight");
+
+  }
+
+  if (theyAreCooking) {
+    turnOnLight("kitchenLight");
+  } else if (theyAreWatchingTV) {
+    turnOffLight("livingRoomLight");
+    turnOffLight("diningRoomLight");
+    
+  }
+
+  if (theyWentToBed) {
+    turnOnLight("bedroomLight");
+  }
 }
+// You should be using if else statements and the function arguments
+// example of turning a light on
 
 /* 
    -------TESTS---------------------------------------------------------------
